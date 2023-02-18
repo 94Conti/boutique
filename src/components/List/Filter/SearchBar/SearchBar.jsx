@@ -7,7 +7,7 @@ const SearchBar = ({search, handleSearch}) => {
     return (
         <div className='searchBar'>
             <span>Search by </span>
-            <input type='text' name='name' value={search} onChange={handleChange}/>
+            <input type='text' value={search} onChange={handleChange}/>
         </div>
     )
 }

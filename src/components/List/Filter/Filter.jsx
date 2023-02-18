@@ -1,12 +1,14 @@
+import {useState} from 'react';
 import './Filter.css';
+
 import SearchBar from "./SearchBar/SearchBar";
-import {useState} from "react";
+import Range from "./Range/Range";
 
 const Filter = ({applyFilter}) => {
 
     const initialFilter = {
         search: '',
-        range: '',
+        range: [0, 30],
         order: 'ASC'
     };
 
@@ -16,6 +18,13 @@ const Filter = ({applyFilter}) => {
         setFilter({
             ...filter,
             search: search
+        });
+    }
+
+    const handleRange = (range) => {
+        setFilter({
+            ...filter,
+            range: range
         });
     }
 
@@ -33,8 +42,7 @@ const Filter = ({applyFilter}) => {
         <div>
             <form onSubmit={handleSubmit}>
                 <SearchBar search={filter.search} handleSearch={handleSearch}/>
-                <div className='range'>
-                </div>
+                <Range maxLimit={30} range={filter.range} handleRange={handleRange}/>
                 <input type='submit'/>
                 <span className='clear' onClick={handleClear}>Clear</span>
             </form>
