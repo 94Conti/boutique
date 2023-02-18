@@ -1,25 +1,42 @@
+import './Filter.css';
+import SearchBar from "./SearchBar/SearchBar";
 import {useState} from "react";
 
-const Filter = ({handleFilter}) => {
+const Filter = ({applyFilter}) => {
 
-    const [search, setSearch] = useState('');
+    const initialFilter = {
+        search: '',
+        range: '',
+        order: 'ASC'
+    };
 
-    const handleChange = (e) => {
-        setSearch(e.target.value);
+    const [filter, setFilter] = useState(initialFilter)
+
+    const handleSearch = (search) => {
+        setFilter({
+            ...filter,
+            search: search
+        });
     }
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleFilter(search);
+        applyFilter(filter);
+    }
+
+    const handleClear = () => {
+        setFilter(initialFilter)
+        applyFilter(initialFilter);
     }
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <span>Search by </span>
-                <input type='text' name='name' value={search} onChange={handleChange}/>
+                <SearchBar search={filter.search} handleSearch={handleSearch}/>
+                <div className='range'>
+                </div>
                 <input type='submit'/>
+                <span className='clear' onClick={handleClear}>Clear</span>
             </form>
         </div>
     )

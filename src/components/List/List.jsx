@@ -57,15 +57,16 @@ const List = () => {
 
     const productList = products.map(( product ) => <ProductCard key={product.id} product={product}/>);
 
-    const handleFilter = (searchValue) => {
-        setProducts(products.filter(product => product.name.toLowerCase().includes(searchValue.toLowerCase())));
+    const applyFilter = (filter) => {
+        const searchValue = filter.search.toLowerCase().trim();
+        setProducts(productsJSON.filter(product => product.name.toLowerCase().includes(searchValue)));
     };
 
     return (
         <div>
             <h1>List</h1>
             <p>Total items {productList.length}</p>
-            <Filter handleFilter={handleFilter}/>
+            <Filter applyFilter={applyFilter}/>
             <div className='productsList'>
                 { productList }
             </div>
