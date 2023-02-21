@@ -1,7 +1,13 @@
+import { Link } from "react-router-dom";
+
 const Cart = () => {
 
+    
     return (
-        <button onClick={handleClick}>Cart</button>
+        
+        <Link to="/cart">
+            <button>Cart</button> 
+        </Link>
     )
 }
 
