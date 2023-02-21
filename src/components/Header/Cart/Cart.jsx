@@ -1,7 +1,7 @@
 const Cart = () => {
 
     return (
-        <div>Cart</div>
+        <button onClick={handleClick}>Cart</button>
     )
 }
 
