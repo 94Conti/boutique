@@ -1,8 +1,9 @@
 .product {
-    width: 100px;
-    height: 100px;
+    width: calc(100%/4);
+    min-width: 150px;
 }
 
 .product.inactive {
     color: red;
 }
+
