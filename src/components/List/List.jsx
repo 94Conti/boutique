@@ -6,8 +6,6 @@ import {useState} from "react";
 const List = (props) => {
     const {data} = props;
 
-    
-
     const [products, setProducts] = useState(data);
 
     const productList = products.map(( product ) => <ProductCard key={product.id} product={product}/>);
@@ -19,7 +17,7 @@ const List = (props) => {
 
         // Range
         const [min, max] = filter.range;
-        filtered = filtered.filter( product => product.price >= min && product.price <= max );
+        filtered = filtered.filter( product => product['price'] >= min && product['price'] <= max );
         setProducts(filtered);
     };
 
