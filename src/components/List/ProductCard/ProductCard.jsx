@@ -11,13 +11,15 @@ const ProductCard = ({product}) => {
 
     return (
         <div className={`product ${stock === 0 ? 'inactive' : ''}`}>
-            <Link to={`/product/${id}`}>
+{            <Link to={`/product/${id}`}>
             
                 <img src={imageUrl} alt={name}/>
                 <h2>{name}</h2>
                 <p>{price}€</p>
                 <p>Stock: {stock}</p>
-            </Link>
+                
+                
+            </Link>}
 
         </div>
 
